@@ -34,7 +34,8 @@ const EAST_LOS_HIGH_POSTER_URL =
 let titles = [
   "Fresh Prince of Bel Air",
   "Curb Your Enthusiasm",
-  "East Los High",
+    "East Los High",
+  "Pride and Prejudice",
 ];
 // Your final submission should have much more data than this, and
 // you should use more than just an array of strings to store it all.
