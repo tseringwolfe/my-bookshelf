@@ -129,9 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //search setup
 function setupSearch() {
-    const input = document.createElement("input");
-    input.placeholder = "Search by title...";
-    input.className = "search-bar";
+    const input = document.getElementById("searchInput");
 
     //search filter logic
     input.addEventListener("input", (e) => {
@@ -140,14 +138,40 @@ function setupSearch() {
         showCards(filtered);
     });
 
-    document.body.insertBefore(input, document.getElementById("card-container"));
+    //document.body.insertBefore(input, document.getElementById("card-container"));
 }
 
+function filterByGenre(genre) {
+    const filtered = books.filter(book =>
+        book.details.some(detail => detail == genre)
+    );
+    showCards(filtered);
+}
+
+function addBookPrompt() {
+    const title = prompt("Enter book title: ");
+    if (!title) return;
+
+    const image = prompt("Enter image URL: ");
+    const author = prompt("Enter author: ");
+    const genre = prompt("Enter genre: ");
+    const year = prompt("Enter publication year: ");
+
+    if (title && image && author && genre && year) {
+        addBook(title, image, [author, genre, year]);
+    } else {
+        alert("Please fill in all fields!");
+    }
+}
 
 //removes last book
 function removeLastBook() {
-  books.pop(); // Remove last item in books array
-  showCards(); // Call showCards again to refresh
+    if (books.length > 0) {
+        books.pop();
+        showCards();
+    } else {
+        alert("No more books to remove!");
+    }
 }
 
 //adds new book

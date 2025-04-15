@@ -10,6 +10,14 @@
   <body>
     <header class="main-header">
       <h1 class="title">My StoryShelf</h1>
+      <div class="button-container">
+          <button onclick="addBookPrompt()">Add</button>
+          <button onclick="removeLastBook()">Remove</button>
+          <button onclick="filterByGenre('Classic')">Classics</button>
+          <button onclick="filterByGenre('Memoir')">Memoirs</button>
+          <button onclick="filterByGenre('Fiction')">Fiction</button>
+          <button onclick="showCards()">Show All</button>
+      </div>
     </header>
 
     <div class="search-container">
@@ -28,9 +36,6 @@
           <li>Year</li>
         </ul>
       </div>
-    </div>
-    <div class="footer">
-      <button onclick="removeLastBook();">Remove A Book!</button>
     </div>
   </body>
 </html>
