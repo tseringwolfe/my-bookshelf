@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //search setup
 function setupSearch() {
-    const input = document.querySelector("[data-search]");
+    const input = document.createElement("input");
     input.placeholder = "Search by title...";
     input.className = "search-bar";
 
