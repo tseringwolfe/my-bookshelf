@@ -23,86 +23,75 @@
  *
  */
 
-const DORIAN_GRAY_URL =
-  "https://m.media-amazon.com/images/I/71GdwPedEFL._AC_UF1000,1000_QL80_DpWeblab_.jpg";
-const PRIDE_PREJ_URL =
-  "https://m.media-amazon.com/images/I/712P0p5cXIL._AC_UF1000,1000_QL80_.jpg";
-const LIGHTHOUSE_URL =
-    "https://m.media-amazon.com/images/I/51RKwb538NL._AC_UF1000,1000_QL80_.jpg";
-const BELL_JAR_URL =
-    "https://m.media-amazon.com/images/I/81wUVpREPSL._AC_UF1000,1000_QL80_.jpg";
-const CATCHER_URL =
-    "https://m.media-amazon.com/images/I/8125BDk3l9L.jpg";
-const BREATH_URL =
-    "https://m.media-amazon.com/images/I/61gwba1pQnL.jpg";
-const EDUCATED_URL =
-    "https://m.media-amazon.com/images/I/81Om0n+pfyL.jpg";
-const CRYING_HMART_URL =
-    "https://m.media-amazon.com/images/I/81aS9JndklL.jpg";
-const FOSTER_URL =
-    "https://groveatlantic.com/core/wp-content/uploads/2022/04/FosterHC.jpg";
-const NEVER_KNOWN_MEN_URL =
-    "https://m.media-amazon.com/images/I/71+lTVEy8lL.jpg";
-const SEVEN_HUSBANDS_URL =
-    "https://i.redd.it/ga9po4pggwea1.jpg";
-const OVE_URL =
-    "https://m.media-amazon.com/images/I/81JDmCKnv0L.jpg";
-
-// This is an array of strings (TV show titles)
-let titles = [
-    "The Picture of Dorian Gray",
-    "Pride and Prejudice",
-    "To the Lighthouse",
-    "The Bell Jar",
-    "The Catcher in the Rye",
-    "When Breath Becomes Air",
-    "Educated",
-    "Crying in H-Mart",
-    "Foster",
-    "I Who Have Never Known Men",
-    "The Seven Husbands of Evelyn Hugo",
-    "A Man Called Ove"
+// This is an array of book objects
+let books = [
+    {
+        title: "The Picture of Dorian Gray",
+        image: "https://m.media-amazon.com/images/I/71GdwPedEFL._AC_UF1000,1000_QL80_DpWeblab_.jpg",
+        details: ["Oscar Wilde", "Classic", "1890"]
+    },
+    {
+        title: "Pride and Prejudice",
+        image: "https://m.media-amazon.com/images/I/712P0p5cXIL._AC_UF1000,1000_QL80_.jpg",
+        details: ["Jane Austen", "Classic", "1813"]
+    },
+    {
+        title: "To the Lighthouse",
+        image: "https://m.media-amazon.com/images/I/51RKwb538NL._AC_UF1000,1000_QL80_.jpg",
+        details: ["Virginia Woolf", "Classic", "1927"]
+    },
+    {
+        title: "The Bell Jar",
+        image: "https://m.media-amazon.com/images/I/81wUVpREPSL._AC_UF1000,1000_QL80_.jpg",
+        details: ["Sylvia Plath", "Classic", "1963"]
+    },    
+    {
+        title: "The Catcher in the Rye",
+        image: "https://m.media-amazon.com/images/I/8125BDk3l9L.jpg",
+        details: ["J.D. Salinger", "Classic", "1951"]
+    },
+    {
+        title: "When Breath Becomes Air",
+        image: "https://m.media-amazon.com/images/I/61gwba1pQnL.jpg",
+        details: ["Paul Kalanithi", "Memoir", "2016"]
+    },
+    {
+        title: "Educated",
+        image: "https://m.media-amazon.com/images/I/81Om0n+pfyL.jpg",
+        details: ["Tara Westover", "Memoir", "2018"]
+    },
+    {
+        title: "Crying in H-Mart",
+        image: "https://m.media-amazon.com/images/I/81aS9JndklL.jpg",
+        details: ["Michelle Zauner", "Memoir", "2021"]
+    },
+    {
+        title: "Foster",
+        image: "https://groveatlantic.com/core/wp-content/uploads/2022/04/FosterHC.jpg",
+        details: ["Claire Keegan", "Fiction", "2010"]
+    },
+    {
+        title: "I Who Have Never Known Men",
+        image: "https://m.media-amazon.com/images/I/71+lTVEy8lL.jpg",
+        details: ["Jacqueline Harpman", "Fiction", "1995"]
+    },
+    {
+        title: "The Seven Husbands of Evelyn Hugo",
+        image: "https://i.redd.it/ga9po4pggwea1.jpg",
+        details: ["Taylor Jenkins Reid", "Fiction", "2017"]
+    },
+    {
+        title: "A Man Called Ove",
+        image: "https://m.media-amazon.com/images/I/81JDmCKnv0L.jpg",
+        details: ["Fredrik Backman", "Fiction", "2012"]
+    }
 ];
-// Your final submission should have much more data than this, and
-// you should use more than just an array of strings to store it all.
 
 // This function adds cards the page to display the data in the array
 function showCards() {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   const templateCard = document.querySelector(".card");
-
-  for (let i = 0; i < titles.length; i++) {
-    let title = titles[i];
-
-    // This part of the code doesn't scale very well! After you add your
-    // own data, you'll need to do something totally different here.
-    let imageURL = "";
-      if (i == 0) {
-          imageURL = DORIAN_GRAY_URL;
-      } else if (i == 1) {
-          imageURL = PRIDE_PREJ_URL;
-      } else if (i == 2) {
-          imageURL = LIGHTHOUSE_URL;
-      } else if (i == 3) {
-          imageURL = BELL_JAR_URL;
-      } else if (i == 4) {
-          imageURL = CATCHER_URL;
-      } else if (i == 5) {
-          imageURL = BREATH_URL;
-      } else if (i == 6) {
-          imageURL = EDUCATED_URL;
-      } else if (i == 7) {
-          imageURL = CRYING_HMART_URL;
-      } else if (i == 8) {
-          imageURL = FOSTER_URL;
-      } else if (i == 9) {
-          imageURL = NEVER_KNOWN_MEN_URL;
-      } else if (i == 10) {
-          imageURL = SEVEN_HUSBANDS_URL;
-      } else if (i == 11) {
-          imageURL = OVE_URL;
-      }
 
     const nextCard = templateCard.cloneNode(true); // Copy the template card
     editCardContent(nextCard, title, imageURL); // Edit title and image
@@ -129,14 +118,14 @@ function editCardContent(card, newTitle, newImageURL) {
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
 
-function quoteAlert() {
-  console.log("Button Clicked!");
-  alert(
-    "I guess I can kiss heaven goodbye, because it got to be a sin to look this good!"
-  );
+//removes last book
+function removeLastBook() {
+  books.pop(); // Remove last item in books array
+  showCards(); // Call showCards again to refresh
 }
 
-function removeLastCard() {
-  titles.pop(); // Remove last item in titles array
-  showCards(); // Call showCards again to refresh
+//adds new book
+function addBook(title, image, details) {
+    books.push({ title, image, details }); //add new book to array
+    showCards();
 }

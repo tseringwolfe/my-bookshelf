@@ -11,21 +11,26 @@
     <header class="main-header">
       <h1 class="title">My StoryShelf</h1>
     </header>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search by title..." />
+    </div>
+
     <div id="card-container"></div>
+
     <div class="card" style="display: none">
       <div class="card-content">
         <h2>Book Title</h2>
         <img src="" alt="Book Cover" />
         <ul>
           <li>Author</li>
-          <li>Tags</li>
-          <li>Read/To Be Read</li>
+          <li>Genre</li>
+          <li>Year</li>
         </ul>
       </div>
     </div>
     <div class="footer">
-      <button onclick="quoteAlert();">Get A Quote!</button>
-      <button onclick="removeLastCard();">Remove A Book!</button>
+      <button onclick="removeLastBook();">Remove A Book!</button>
     </div>
   </body>
 </html>
