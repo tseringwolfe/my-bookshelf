@@ -88,35 +88,62 @@ let books = [
 ];
 
 // This function adds cards the page to display the data in the array
-function showCards() {
+function showCards(filteredBooks = books) {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   const templateCard = document.querySelector(".card");
 
-    const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, title, imageURL); // Edit title and image
-    cardContainer.appendChild(nextCard); // Add new card to the container
-  }
+    filteredBooks.forEach((book) => {
+        const nextCard = templateCard.cloneNode(true);
+        editCardContent(nextCard, book);
+        cardContainer.appendChild(nextCard);
+    });
 }
 
-function editCardContent(card, newTitle, newImageURL) {
-  card.style.display = "block";
+function editCardContent(card, book) {
+    card.style.display = "flex";
 
-  const cardHeader = card.querySelector("h2");
-  cardHeader.textContent = newTitle;
+    const cardHeader = card.querySelector("h2");
+    cardHeader.textContent = book.title;
 
-  const cardImage = card.querySelector("img");
-  cardImage.src = newImageURL;
-  cardImage.alt = newTitle + " Poster";
+    const cardImage = card.querySelector("img");
+    cardImage.src = book.image;
+    cardImage.alt = book.title + " Cover";
 
+    const bulletList = card.querySelector("ul");
+    bulletList.innerHTML = "";
+    book.details.forEach((detail) => {
+        const li = document.createElement("li");
+        li.textContent = detail;
+        bulletList.appendChild(li);
+    });
   // You can use console.log to help you debug!
   // View the output by right clicking on your website,
   // select "Inspect", then click on the "Console" tab
   console.log("new card:", newTitle, "- html: ", card);
 }
 
-// This calls the addCards() function when the page is first loaded
-document.addEventListener("DOMContentLoaded", showCards);
+document.addEventListener("DOMContentLoaded", () => {
+    showCards();
+    setupSearch();
+});
+
+//search setup
+function setupSearch() {
+    const input = document.createElement("input");
+    input.placeholder = "Search by title...";
+    input.className = "search-bar";
+
+    //search filter logic
+    input.addEventListener("input", (e) => {
+        const query = e.target.value.toLowerCase();
+        const filtered = books.filter((book) => book.title.toLowerCase().includes(query));
+        showCards(filtered);
+    });
+
+    document.body.insertBefore(input, document.getElementById("card-container"));
+}
+
 
 //removes last book
 function removeLastBook() {
