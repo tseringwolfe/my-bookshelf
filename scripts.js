@@ -117,10 +117,7 @@ function editCardContent(card, book) {
         li.textContent = detail;
         bulletList.appendChild(li);
     });
-  // You can use console.log to help you debug!
-  // View the output by right clicking on your website,
-  // select "Inspect", then click on the "Console" tab
-  console.log("new card:", newTitle, "- html: ", card);
+ 
 }
 
 document.addEventListener("DOMContentLoaded", () => {
