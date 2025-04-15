@@ -23,19 +23,27 @@
  *
  */
 
-const FRESH_PRINCE_URL =
-  "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL =
-  "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL =
-  "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
+const DORIAN_GRAY_URL =
+  "https://m.media-amazon.com/images/I/71GdwPedEFL._AC_UF1000,1000_QL80_DpWeblab_.jpg";
+const PRIDE_PREJ_URL =
+  "https://m.media-amazon.com/images/I/712P0p5cXIL._AC_UF1000,1000_QL80_.jpg";
+const LIGHTHOUSE_URL =
+  "https://m.media-amazon.com/images/I/51RKwb538NL._AC_UF1000,1000_QL80_.jpg";
 
 // This is an array of strings (TV show titles)
 let titles = [
-  "Fresh Prince of Bel Air",
-  "Curb Your Enthusiasm",
-    "East Los High",
-  "Pride and Prejudice",
+    "The Picture of Dorian Gray",
+    "Pride and Prejudice",
+    "To the Lighthouse",
+    "The Bell Jar",
+    "The Catcher in the Rye",
+    "When Breath Becomes Air",
+    "Educated",
+    "Crying in H-Mart",
+    "Foster",
+    "I Who Have Never Known Men",
+    "The Seven Husbands of Evelyn Hugo",
+    "A Man Called Ove"
 ];
 // Your final submission should have much more data than this, and
 // you should use more than just an array of strings to store it all.
@@ -53,11 +61,11 @@ function showCards() {
     // own data, you'll need to do something totally different here.
     let imageURL = "";
     if (i == 0) {
-      imageURL = FRESH_PRINCE_URL;
+      imageURL = DORIAN_GRAY_URL;
     } else if (i == 1) {
-      imageURL = CURB_POSTER_URL;
+      imageURL = PRIDE_PREJ_URL;
     } else if (i == 2) {
-      imageURL = EAST_LOS_HIGH_POSTER_URL;
+      imageURL = LIGHTHOUSE_URL;
     }
 
     const nextCard = templateCard.cloneNode(true); // Copy the template card
