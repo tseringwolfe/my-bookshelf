@@ -28,7 +28,25 @@ const DORIAN_GRAY_URL =
 const PRIDE_PREJ_URL =
   "https://m.media-amazon.com/images/I/712P0p5cXIL._AC_UF1000,1000_QL80_.jpg";
 const LIGHTHOUSE_URL =
-  "https://m.media-amazon.com/images/I/51RKwb538NL._AC_UF1000,1000_QL80_.jpg";
+    "https://m.media-amazon.com/images/I/51RKwb538NL._AC_UF1000,1000_QL80_.jpg";
+const BELL_JAR_URL =
+    "https://m.media-amazon.com/images/I/81wUVpREPSL._AC_UF1000,1000_QL80_.jpg";
+const CATCHER_URL =
+    "https://m.media-amazon.com/images/I/8125BDk3l9L.jpg";
+const BREATH_URL =
+    "https://m.media-amazon.com/images/I/61gwba1pQnL.jpg";
+const EDUCATED_URL =
+    "https://m.media-amazon.com/images/I/81Om0n+pfyL.jpg";
+const CRYING_HMART_URL =
+    "https://m.media-amazon.com/images/I/81aS9JndklL.jpg";
+const FOSTER_URL =
+    "https://groveatlantic.com/core/wp-content/uploads/2022/04/FosterHC.jpg";
+const NEVER_KNOWN_MEN_URL =
+    "https://prodimage.images-bn.com/pimages/9781945492600_p0_v1_s1200x630.jpg";
+const SEVEN_HUSBANDS_URL =
+    "https://i.redd.it/ga9po4pggwea1.jpg";
+const OVE_URL =
+    "https://m.media-amazon.com/images/I/81JDmCKnv0L.jpg";
 
 // This is an array of strings (TV show titles)
 let titles = [
@@ -60,13 +78,31 @@ function showCards() {
     // This part of the code doesn't scale very well! After you add your
     // own data, you'll need to do something totally different here.
     let imageURL = "";
-    if (i == 0) {
-      imageURL = DORIAN_GRAY_URL;
-    } else if (i == 1) {
-      imageURL = PRIDE_PREJ_URL;
-    } else if (i == 2) {
-      imageURL = LIGHTHOUSE_URL;
-    }
+      if (i == 0) {
+          imageURL = DORIAN_GRAY_URL;
+      } else if (i == 1) {
+          imageURL = PRIDE_PREJ_URL;
+      } else if (i == 2) {
+          imageURL = LIGHTHOUSE_URL;
+      } else if (i == 3) {
+          imageURL = BELL_JAR_URL;
+      } else if (i == 4) {
+          imageURL = CATCHER_URL;
+      } else if (i == 5) {
+          imageURL = BREATH_URL;
+      } else if (i == 6) {
+          imageURL = EDUCATED_URL;
+      } else if (i == 7) {
+          imageURL = CRYING_HMART_URL;
+      } else if (i == 8) {
+          imageURL = FOSTER_URL;
+      } else if (i == 9) {
+          imageURL = NEVER_KNOWN_MEN_URL;
+      } else if (i == 10) {
+          imageURL = SEVEN_HUSBANDS_URL;
+      } else if (i == 11) {
+          imageURL = OVE_URL;
+      }
 
     const nextCard = templateCard.cloneNode(true); // Copy the template card
     editCardContent(nextCard, title, imageURL); // Edit title and image
