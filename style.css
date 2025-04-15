@@ -2,6 +2,7 @@ html,
 body {
   background-color: #f6f1eb;
   font-family: "Georgia", serif;
+  color: #333;
   margin: 0;
   padding: 0;
 }
@@ -16,7 +17,7 @@ body {
   text-align: center;
   margin: 0;
   font-size: 5em;
-  font-family: "Georgia";
+  font-family: "Georgia", serif;
   font-weight: normal;
   color: #fff9e6;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
@@ -24,32 +25,54 @@ body {
 
 #card-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin: 20px;
+  gap: 20px;
+  padding: 30px;
 }
 
 .card {
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 5px;
+  width: 250px;
+  background-color: white;
+  border: 1px solid #e3d5ca;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.03);
 }
 
 .card-content {
-  padding: 20px;
-  font-family: "Verdana";
-  color: #777;
+    padding: 20px;
+    font-family: "Verdana", sans-serif;
+    color: #444;
 }
 
 .card-content h2 {
-  margin-top: 0;
-  font-size: 20px;
+    margin-top: 0;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #5a3e36;
 }
 
 .card img {
   width: 100%;
   height: auto;
+  display: block;
+}
+
+.card-content ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.card-content li {
+    margin-bottom: 8px;
+    font-size: 0.95em;
 }
 
 .footer {
@@ -61,7 +84,7 @@ body {
 
 button {
   text-align: center;
-  background-color: #666;
+  background-color: #6b4f3b;
   border: none;
   padding-left: 10px;
   padding-right: 10px;
@@ -71,4 +94,9 @@ button {
   font-size: 22px;
   cursor: pointer;
   margin: 5px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #4e3728;
 }
