@@ -117,7 +117,6 @@ function editCardContent(card, book) {
         li.textContent = detail;
         bulletList.appendChild(li);
     });
- 
 }
 
 document.addEventListener("DOMContentLoaded", () => {
