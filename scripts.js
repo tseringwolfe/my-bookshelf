@@ -42,7 +42,7 @@ const CRYING_HMART_URL =
 const FOSTER_URL =
     "https://groveatlantic.com/core/wp-content/uploads/2022/04/FosterHC.jpg";
 const NEVER_KNOWN_MEN_URL =
-    "https://prodimage.images-bn.com/pimages/9781945492600_p0_v1_s1200x630.jpg";
+    "https://m.media-amazon.com/images/I/71+lTVEy8lL.jpg";
 const SEVEN_HUSBANDS_URL =
     "https://i.redd.it/ga9po4pggwea1.jpg";
 const OVE_URL =
