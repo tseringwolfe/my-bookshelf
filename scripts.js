@@ -23,75 +23,75 @@
  *
  */
 
-// This is an array of book objects
+// This is an array of book objects, containing title, cover and details for each book
 let books = [
     {
         title: "The Picture of Dorian Gray",
         image: "https://m.media-amazon.com/images/I/71GdwPedEFL._AC_UF1000,1000_QL80_DpWeblab_.jpg",
-        details: ["Oscar Wilde", "Classic", "1890"]
+        details: ["Oscar Wilde", "Classic", "1890", "5"]
     },
     {
         title: "Pride and Prejudice",
         image: "https://m.media-amazon.com/images/I/712P0p5cXIL._AC_UF1000,1000_QL80_.jpg",
-        details: ["Jane Austen", "Classic", "1813"]
+        details: ["Jane Austen", "Classic", "1813", "4.3"]
     },
     {
         title: "To the Lighthouse",
         image: "https://m.media-amazon.com/images/I/51RKwb538NL._AC_UF1000,1000_QL80_.jpg",
-        details: ["Virginia Woolf", "Classic", "1927"]
+        details: ["Virginia Woolf", "Classic", "1927", "N/A"]
     },
     {
         title: "The Bell Jar",
         image: "https://m.media-amazon.com/images/I/81wUVpREPSL._AC_UF1000,1000_QL80_.jpg",
-        details: ["Sylvia Plath", "Classic", "1963"]
-    },    
+        details: ["Sylvia Plath", "Classic", "1963", "N/A"]
+    },
     {
         title: "The Catcher in the Rye",
         image: "https://m.media-amazon.com/images/I/8125BDk3l9L.jpg",
-        details: ["J.D. Salinger", "Classic", "1951"]
+        details: ["J.D. Salinger", "Classic", "1951", "3.9"]
     },
     {
         title: "When Breath Becomes Air",
         image: "https://m.media-amazon.com/images/I/61gwba1pQnL.jpg",
-        details: ["Paul Kalanithi", "Memoir", "2016"]
+        details: ["Paul Kalanithi", "Memoir", "2016", "N/A"]
     },
     {
         title: "Educated",
         image: "https://m.media-amazon.com/images/I/81Om0n+pfyL.jpg",
-        details: ["Tara Westover", "Memoir", "2018"]
+        details: ["Tara Westover", "Memoir", "2018", "4.8"]
     },
     {
         title: "Crying in H-Mart",
         image: "https://m.media-amazon.com/images/I/81aS9JndklL.jpg",
-        details: ["Michelle Zauner", "Memoir", "2021"]
+        details: ["Michelle Zauner", "Memoir", "2021", "N/A"]
     },
     {
         title: "Foster",
         image: "https://groveatlantic.com/core/wp-content/uploads/2022/04/FosterHC.jpg",
-        details: ["Claire Keegan", "Fiction", "2010"]
+        details: ["Claire Keegan", "Fiction", "2010", "4"]
     },
     {
         title: "I Who Have Never Known Men",
         image: "https://m.media-amazon.com/images/I/71+lTVEy8lL.jpg",
-        details: ["Jacqueline Harpman", "Fiction", "1995"]
+        details: ["Jacqueline Harpman", "Fiction", "1995", "3.9"]
     },
     {
         title: "The Seven Husbands of Evelyn Hugo",
         image: "https://i.redd.it/ga9po4pggwea1.jpg",
-        details: ["Taylor Jenkins Reid", "Fiction", "2017"]
+        details: ["Taylor Jenkins Reid", "Fiction", "2017", "5"]
     },
     {
         title: "A Man Called Ove",
         image: "https://m.media-amazon.com/images/I/81JDmCKnv0L.jpg",
-        details: ["Fredrik Backman", "Fiction", "2012"]
+        details: ["Fredrik Backman", "Fiction", "2012", "N/A"]
     }
 ];
 
 // This function adds cards the page to display the data in the array
 function showCards(filteredBooks = books) {
-  const cardContainer = document.getElementById("card-container");
-  cardContainer.innerHTML = "";
-  const templateCard = document.querySelector(".card");
+    const cardContainer = document.getElementById("card-container");
+    cardContainer.innerHTML = "";
+    const templateCard = document.querySelector(".card");
 
     filteredBooks.forEach((book) => {
         const nextCard = templateCard.cloneNode(true);
@@ -113,17 +113,17 @@ function editCardContent(card, book) {
     const bulletList = card.querySelector("ul");
     bulletList.innerHTML = "";
 
-    const details = ["Author", "Genre", "Published"];
+    const details = ["Author", "Genre", "Published", "Rating"];
     book.details.forEach((detail, index) => {
         const li = document.createElement("li");
 
         const labelSpan = document.createElement("span");
         labelSpan.className = "detail-label";
-        labelSpan.textContent = details[index] + ":";
+        labelSpan.textContent = details[index] + ": ";
 
         const valueSpan = document.createElement("span");
         valueSpan.className = "detail-value";
-        valueSpan.textContent = " " + detail;
+        valueSpan.textContent = "   " + detail;
 
         li.appendChild(labelSpan);
         li.appendChild(valueSpan);
@@ -149,8 +149,6 @@ function setupSearch() {
         const filtered = books.filter((book) => book.title.toLowerCase().includes(query));
         showCards(filtered);
     });
-
-    //document.body.insertBefore(input, document.getElementById("card-container"));
 }
 
 function filterByGenre(genre) {
@@ -168,9 +166,10 @@ function addBookPrompt() {
     const author = prompt("Enter author: ");
     const genre = prompt("Enter genre: ");
     const year = prompt("Enter publication year: ");
+    const rating = prompt("Enter your rating(out of 5 stars): ");
 
-    if (title && image && author && genre && year) {
-        addBook(title, image, [author, genre, year]);
+    if (title && image && author && genre && year && rating) {
+        addBook(title, image, [author, genre, year, rating]);
     } else {
         alert("Please fill in all fields!");
     }
