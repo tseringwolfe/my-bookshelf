@@ -52,7 +52,7 @@ body {
 }
 
     .nav-button:hover {
-        color: var(--sage-light);
+        color: var(--sage-dark);
     }
 
 .title {
@@ -262,7 +262,7 @@ button {
 }
 
     button:hover {
-        background-color: var(--sage-light);
+        background-color: var(--sage-dark);
     }
 
 .button-container {
