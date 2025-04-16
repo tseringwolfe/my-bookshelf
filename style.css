@@ -94,13 +94,16 @@ body {
 .card-content {
     padding: 15px;
     flex: 1;
+    color: #2c2416;
 }
 
 .card-content h2 {
+    color: #4a3524;   
     margin-top: 0;
     font-size: 1.5em;
+    font-weight: normal;
     margin-bottom: 10px;
-}
+}    
 
 .card-details {
     display: flex;
@@ -114,10 +117,12 @@ body {
     margin: 0;
     text-align: right;
     font-size: 1.1em;
+    color: #5a4a42;
 }
 
 .card-details li {
     margin-bottom: 5px;
+    color: #5a4a42;
 }
 
 .card img {
