@@ -1,33 +1,76 @@
 html,
+:root {
+    --sage: #9caf88;
+    --sage-dark: #7a8f6e;
+    --sage-light: #c8d5bb;
+    --gold: #d4af37;
+    --gold-light: #f1e0ac;
+    --black: #2a2a2a;
+    --white: #f8f8f8;
+}
+
 body {
-  background-color: #f6f1eb;
-  font-family: "Georgia", serif;
-  color: #f5e7d9;
-  margin: 0;
-  padding: 0;
+    background-color: var(--white);
+    font-family: "Georgia", serif;
+    color: var(--black);
+    margin: 0;
+    padding: 0;
 }
 
 .main-header {
-  background-color: #6b4f3b;
-  padding: 40px 8px;
-  box-shadow: 0 4px 10px #4e3728;
+    background-color: var(--sage-dark);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    font-family: "Georgia", serif;
+    transition: color 0.2s;
+}
+
+    .nav-button:hover {
+        color: #382110;
+    }
 
 .title {
-  text-align: center;
-  margin: 0;
-  font-size: 5em;
-  font-family: "Georgia", serif;
-  font-weight: normal;
-  color: #fff9e6;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    text-align: left;
+    margin: 0;
+    font-size: 24px;
+    font-family: "Georgia", serif;
+    font-weight: bold;
+    color: var(--gold-light);
+    text-shadow: 1px 1px 2px var(--black);
 }
 
+/*Search*/
 .search-container {
     display: flex;
     justify-content: center;
     padding: 20px 10px;
-    margin: 0 auto;
+    margin-left: 15px;
     width: 100%;
 }
 
@@ -38,24 +81,58 @@ body {
 }
 
 #searchInput {
-    width: 40%;
-    max-width: 400px;
-    padding: 10px 15px;
+    width: 200px;
+    padding: 8px 12px;
     font-size: 1em;
-    border: 1px solid #d4b483;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--sage);
+    border-radius: 4px;
+    background-color: var(--white);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
-#searchInput:focus {
-    outline: none;
-    border-color: #8b6b4a;
-    box-shadow: 0 2px 8px rgba(139, 107, 74, 0.2);
-    width: 45%;
+    #searchInput:focus {
+        outline: none;
+        border-color: var(--gold);
+        box-shadow: 0 2px 8px rgba(139, 107, 74, 0.2);
+        width: 45%;
+    }
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+    .dropdown-content a {
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-family: 'Lato', sans-serif;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            color: #382110;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/*Cards*/
 #card-container {
     display: flex;
     flex-wrap: wrap;
@@ -70,26 +147,42 @@ body {
     display: flex;
     width: 45%;
     min-width: 300px;
-    background-color: #fff;
-    border: 1px solid #d4b483;
+    background-color: var(--white);
+    border: 1px solid var(--sage-light);
     border-radius: 0 0 8px 8px;
     margin: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: relative;
     border-top: none;
 }
 
-.card::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    left: -4px;
-    right: -4px;
-    height: 8px;
-    background: #d4b483;
-    border-radius: 0 0 8px 8px;
-    z-index: -1;
-}
+    .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background-color: var(--gold);
+    }
+
+    .card::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: -4px;
+        right: -4px;
+        height: 8px;
+        background-color: var(--sage);
+        border-radius: 0 0 8px 8px;
+        z-index: -1;
+    }
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
+    }
 
 .card-content {
     padding: 15px;
@@ -97,13 +190,14 @@ body {
     color: #2c2416;
 }
 
-.card-content h2 {
-    color: #4a3524;   
-    margin-top: 0;
-    font-size: 1.5em;
-    font-weight: normal;
-    margin-bottom: 10px;
-}    
+    .card-content h2 {
+        color: var(--black);
+        border-bottom: 1px solid var(--gold);
+        padding-bottom: 5px;
+        margin-top: 0;
+        font-size: 1.5em;
+        font-weight: normal;
+    }
 
 .card-details {
     display: flex;
@@ -111,31 +205,31 @@ body {
     margin-top: auto;
 }
 
-.card-details ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    text-align: left;
-    font-size: 1.1em;
-    color: #5a4a42;
-}
+    .card-details ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+        font-size: 1.1em;
+        color: #5a4a42;
+    }
 
-.card-details li {
-    margin-bottom: 5px;
-    font-size: 1em;
-    display: flex;
-    color: #5a4a42;
-}
+    .card-details li {
+        margin-bottom: 5px;
+        font-size: 1em;
+        display: flex;
+        color: #5a4a42;
+    }
 
 .detail-label {
     font-weight: bold;
     min-width: 80px;
     display: inline-block;
-    color: #5a3921;
+    color: var(--sage-dark);
 }
 
 .detail-value {
-    color: #6b4f3b;
+    color: var(--black);
 }
 
 .card img {
@@ -151,34 +245,44 @@ body {
     padding-left: 20px;
 }
 
-body {
-    background-color: #f5e7d9;
-    background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
-}
-
+/*Buttons*/
 button {
-  text-align: center;
-  background-color: #6b4f3b;
-  border: none;
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 40px;
-  border-radius: 10px;
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-  margin: 5px;
-  transition: background-color 0.2s;
+    text-align: center;
+    background-color: #6b4f3b;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    margin: 5px;
+    transition: all 0.2s ease;
 }
 
-button:hover {
-    background-color: #4e3728;
-}
+    button:hover {
+        background-color: #4e3728;
+    }
 
 .button-container {
     display: flex;
     justify-content: center;
     gap: 10px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    background-color: var(--black);
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
+    .button-container button {
+        background-color: var(--sage);
+        color: var(--black);
+        border: 1px solid var(--sage-dark);
+        font-weight: bold;
+    }
+
+        .button-container button:hover {
+            background-color: var(--gold);
+            color: var(--black);
+        }

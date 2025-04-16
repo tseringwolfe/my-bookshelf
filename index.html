@@ -8,21 +8,29 @@
   </head>
 
   <body>
-    <header class="main-header">
-      <h1 class="title">My StoryShelf</h1>
-      <div class="button-container">
-          <button onclick="addBookPrompt()">Add</button>
-          <button onclick="removeLastBook()">Remove</button>
-          <button onclick="filterByGenre('Classic')">Classics</button>
-          <button onclick="filterByGenre('Memoir')">Memoirs</button>
-          <button onclick="filterByGenre('Fiction')">Fiction</button>
-          <button onclick="showCards()">Show All</button>
-      </div>
-    </header>
+      <header class="main-header">
+          <div class="header-container">
+              <div class="logo">My StoryShelf</div>
+              <nav class="header-nav">
+                  <button class="nav-button" onclick="addBookPrompt()">Add</button>
+                  <button class="nav-button" onclick="removeLastBook()">Remove</button>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search by title..." />
-    </div>
+                  <div class="dropdown">
+                      <button class="nav-button dropbtn">Filter</button>
+                      <div class="dropdown-content">
+                          <a href="#" onclick="filterByGenre('Classic')">Classics</a>
+                          <a href="#" onclick="filterByGenre('Memoir')">Memoirs</a>
+                          <a href="#" onclick="filterByGenre('Fiction')">Fiction</a>
+                          <a href="#" onclick="showCards()">Show All</a>
+                      </div>
+                  </div>
+
+                  <div class="search-container">
+                      <input type="text" id="searchInput" placeholder="Search by title...">
+                  </div>
+              </nav>
+          </div>
+      </header>
 
     <div id="card-container"></div>
 
