@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>StoryShelf | Home</title>
     <meta name="description" content="A Collection of Personal Favorite Books" />
     <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" src="scripts.js"></script>
-  </head>
+</head>
 
-  <body>
-      <header class="main-header">
-          <div class="header-container">
-              <div class="logo">My StoryShelf</div>
-              <nav class="header-nav">
-                  <button class="nav-button" onclick="addBookPrompt()">Add</button>
-                  <button class="nav-button" onclick="removeLastBook()">Remove</button>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="title">My StoryShelf</div>
+            <nav class="header-nav">
+                <button class="nav-button" onclick="addBookPrompt()">Add</button>
+                <button class="nav-button" onclick="removeLastBook()">Remove</button>
 
-                  <div class="dropdown">
-                      <button class="nav-button dropbtn">Filter</button>
-                      <div class="dropdown-content">
-                          <a href="#" onclick="filterByGenre('Classic')">Classics</a>
-                          <a href="#" onclick="filterByGenre('Memoir')">Memoirs</a>
-                          <a href="#" onclick="filterByGenre('Fiction')">Fiction</a>
-                          <a href="#" onclick="showCards()">Show All</a>
-                      </div>
-                  </div>
+                <div class="dropdown">
+                    <button class="nav-button dropbtn">Filter</button>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="filterByGenre('Classic')">Classics</a>
+                        <a href="#" onclick="filterByGenre('Memoir')">Memoirs</a>
+                        <a href="#" onclick="filterByGenre('Fiction')">Fiction</a>
+                        <a href="#" onclick="showCards()">Show All</a>
+                    </div>
+                </div>
 
-                  <div class="search-container">
-                      <input type="text" id="searchInput" placeholder="Search by title...">
-                  </div>
-              </nav>
-          </div>
-      </header>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search by title...">
+                </div>
+            </nav>
+        </div>
+    </header>
 
     <div id="card-container"></div>
 
     <div class="card" style="display: none">
-      <div class="card-content">
-        <h2>Book Title</h2>
-        <div style="display: flex; align-items: flex-start;">
-            <img src="" alt="Book Cover" />
-            <div class="card-details">
-                <ul>
-                    <li><span class="detail-label">Author:</span> <span class="detail-value">Author Name</span></li>
-                    <li><span class="detail-label">Genre:</span> <span class="detail-value">Genre</span></li>
-                    <li><span class="detail-label">Published:</span> <span class="detail-value">Year</span></li>
-                </ul>
+        <div class="card-content">
+            <h2>Book Title</h2>
+            <div style="display: flex; align-items: flex-start;">
+                <img src="" alt="Book Cover" />
+                <div class="card-details">
+                    <ul>
+                        <li><span class="detail-label">Author:</span> <span class="detail-value">Author Name</span></li>
+                        <li><span class="detail-label">Genre:</span> <span class="detail-value">Genre</span></li>
+                        <li><span class="detail-label">Published:</span> <span class="detail-value">Year</span></li>
+                    </ul>
+                </div>
             </div>
         </div>
-      </div>
     </div>
-  </body>
+</body>
 </html>
