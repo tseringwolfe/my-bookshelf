@@ -52,13 +52,13 @@ body {
 }
 
     .nav-button:hover {
-        color: var(--sage-dark);
+        color: #333;
     }
 
 .title {
     text-align: left;
     margin: 0;
-    font-size: 64px;
+    font-size: 32px;
     font-family: "Georgia", serif;
     font-weight: bold;
     color: var(--gold-light);
@@ -262,7 +262,7 @@ button {
 }
 
     button:hover {
-        background-color: var(--sage-dark);
+        background-color: var(--sage-light);
     }
 
 .button-container {
