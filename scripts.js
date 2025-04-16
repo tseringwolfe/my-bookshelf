@@ -205,10 +205,12 @@ function addBookPrompt() {
     const rating = prompt("Enter your rating(out of 5 stars): ");
     const read = prompt("Enter 'yes' if you have read the book, 'no' if you have not: ");
 
+    let read_tbr;
+
     if (read == "yes") {
-        let read_tbr = true;
+        read_tbr = true;
     } else if (read == "no") {
-        let read_tbr = false;
+        read_tbr = false;
     } else {
         alert("Please fill in fields correctly!");
     }
