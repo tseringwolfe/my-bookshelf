@@ -28,62 +28,74 @@ let books = [
     {
         title: "The Picture of Dorian Gray",
         image: "https://m.media-amazon.com/images/I/71GdwPedEFL._AC_UF1000,1000_QL80_DpWeblab_.jpg",
-        details: ["Oscar Wilde", "Classic", "1890", "5"]
+        details: ["Oscar Wilde", "Classic", "1890", "5"],
+        read: true
     },
     {
         title: "Pride and Prejudice",
         image: "https://m.media-amazon.com/images/I/712P0p5cXIL._AC_UF1000,1000_QL80_.jpg",
-        details: ["Jane Austen", "Classic", "1813", "4.3"]
+        details: ["Jane Austen", "Classic", "1813", "4.3"],
+        read: true
     },
     {
         title: "To the Lighthouse",
         image: "https://m.media-amazon.com/images/I/51RKwb538NL._AC_UF1000,1000_QL80_.jpg",
-        details: ["Virginia Woolf", "Classic", "1927", "N/A"]
+        details: ["Virginia Woolf", "Classic", "1927", "N/A"],
+        read: false
     },
     {
         title: "The Bell Jar",
         image: "https://m.media-amazon.com/images/I/81wUVpREPSL._AC_UF1000,1000_QL80_.jpg",
-        details: ["Sylvia Plath", "Classic", "1963", "N/A"]
+        details: ["Sylvia Plath", "Classic", "1963", "N/A"],
+        read: false
     },
     {
         title: "The Catcher in the Rye",
         image: "https://m.media-amazon.com/images/I/8125BDk3l9L.jpg",
-        details: ["J.D. Salinger", "Classic", "1951", "3.9"]
+        details: ["J.D. Salinger", "Classic", "1951", "3.9"],
+        read: true
     },
     {
         title: "When Breath Becomes Air",
         image: "https://m.media-amazon.com/images/I/61gwba1pQnL.jpg",
-        details: ["Paul Kalanithi", "Memoir", "2016", "N/A"]
+        details: ["Paul Kalanithi", "Memoir", "2016", "N/A"],
+        read: false
     },
     {
         title: "Educated",
         image: "https://m.media-amazon.com/images/I/81Om0n+pfyL.jpg",
-        details: ["Tara Westover", "Memoir", "2018", "4.8"]
+        details: ["Tara Westover", "Memoir", "2018", "4.8"],
+        read: true
     },
     {
         title: "Crying in H-Mart",
         image: "https://m.media-amazon.com/images/I/81aS9JndklL.jpg",
-        details: ["Michelle Zauner", "Memoir", "2021", "N/A"]
+        details: ["Michelle Zauner", "Memoir", "2021", "N/A"],
+        read: false
     },
     {
         title: "Foster",
         image: "https://groveatlantic.com/core/wp-content/uploads/2022/04/FosterHC.jpg",
-        details: ["Claire Keegan", "Fiction", "2010", "4"]
+        details: ["Claire Keegan", "Fiction", "2010", "4"],
+        read: true
     },
     {
         title: "I Who Have Never Known Men",
         image: "https://m.media-amazon.com/images/I/71+lTVEy8lL.jpg",
-        details: ["Jacqueline Harpman", "Fiction", "1995", "3.9"]
+        details: ["Jacqueline Harpman", "Fiction", "1995", "3.9"],
+        read: true
     },
     {
         title: "The Seven Husbands of Evelyn Hugo",
         image: "https://i.redd.it/ga9po4pggwea1.jpg",
-        details: ["Taylor Jenkins Reid", "Fiction", "2017", "5"]
+        details: ["Taylor Jenkins Reid", "Fiction", "2017", "5"],
+        read: true
     },
     {
         title: "A Man Called Ove",
         image: "https://m.media-amazon.com/images/I/81JDmCKnv0L.jpg",
-        details: ["Fredrik Backman", "Fiction", "2012", "N/A"]
+        details: ["Fredrik Backman", "Fiction", "2012", "N/A"],
+        read: false
     }
 ];
 
@@ -102,6 +114,7 @@ function showCards(filteredBooks = books) {
 
 function editCardContent(card, book) {
     card.style.display = "flex";
+    card.dataset.bookTitle = book.title;
 
     const cardHeader = card.querySelector("h2");
     cardHeader.textContent = book.title;
@@ -130,8 +143,31 @@ function editCardContent(card, book) {
         bulletList.appendChild(li);
     });
 
+    //add read/tbr button
+    const buttonContainer = card.querySelector(".card-content");
+    let statusButton = card.querySelector(".read-status-btn");
+
+    if (!statusButton) {
+        statusButton = document.createElement("button");
+        statusButton.className = "read-status-btn";
+        buttonContainer.appendChild(statusButton);
+    }
+
+    updateReadButton(statusButton, book.read);
+
+    statusButton.onclick = function () {
+        book.read = !book.read;
+        updateReadButton(statusButton, book.read);
+    };
+
+
     console.log("new card:", book.title, "- html: ", card);
 
+}
+
+function updateReadButton(button, isRead) {
+    button.textContent = isRead ? "Read" : "TBR";
+    button.className = isRead ? "read-status-btn read" : "read-status-btn tbr";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -167,9 +203,18 @@ function addBookPrompt() {
     const genre = prompt("Enter genre: ");
     const year = prompt("Enter publication year: ");
     const rating = prompt("Enter your rating(out of 5 stars): ");
+    const read = prompt("Enter 'yes' if you have read the book, 'no' if you have not: ");
+
+    if (read == "yes") {
+        let read_tbr = true;
+    } else if (read == "no") {
+        let read_tbr = false;
+    } else {
+        alert("Please fill in fields correctly!");
+    }
 
     if (title && image && author && genre && year && rating) {
-        addBook(title, image, [author, genre, year, rating]);
+        addBook(title, image, [author, genre, year, rating], read_tbr);
     } else {
         alert("Please fill in all fields!");
     }
@@ -186,7 +231,7 @@ function removeLastBook() {
 }
 
 //adds new book
-function addBook(title, image, details) {
-    books.push({ title, image, details }); //add new book to array
+function addBook(title, image, details, read) {
+    books.push({ title, image, details, read }); //add new book to array
     showCards();
 }
