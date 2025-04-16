@@ -115,14 +115,27 @@ body {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    text-align: right;
+    text-align: left;
     font-size: 1.1em;
     color: #5a4a42;
 }
 
 .card-details li {
     margin-bottom: 5px;
+    font-size: 1em;
+    display: flex;
     color: #5a4a42;
+}
+
+.detail-label {
+    font-weight: bold;
+    min-width: 80px;
+    display: inline-block;
+    color: #5a3921;
+}
+
+.detail-value {
+    color: #6b4f3b;
 }
 
 .card img {

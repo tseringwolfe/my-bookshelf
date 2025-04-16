@@ -112,9 +112,21 @@ function editCardContent(card, book) {
 
     const bulletList = card.querySelector("ul");
     bulletList.innerHTML = "";
-    book.details.forEach((detail) => {
+
+    const details = ["Author", "Genre", "Published"];
+    book.details.forEach((detail, index) => {
         const li = document.createElement("li");
-        li.textContent = detail;
+
+        const labelSpan = document.createElement("span");
+        labelSpan.className = "detail-label";
+        labelSpan.textContent = details[index] + ":";
+
+        const valueSpan = document.createElement("span");
+        valueSpan.className = "detail-value";
+        valueSpan.textContent = " " + detail;
+
+        li.appendChild(labelSpan);
+        li.appendChild(valueSpan);
         bulletList.appendChild(li);
     });
 
