@@ -230,6 +230,7 @@ body {
 
 .detail-value {
     color: var(--black);
+    margin-left: 5px;
 }
 
 .card img {
